@@ -12,6 +12,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ForumController extends AbstractController
 {
     /**
+     * @Route("/home", name="homepage")
+     */
+    public function home() {
+        return $this->render('forum/home.html.twig');
+    }
+    
+    /**
      * @Route("/", name="liste-des-threads")
      */
     public function index(ThreadRepository $repo)

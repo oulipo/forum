@@ -30,6 +30,11 @@
     </form>
   </div>
 </nav>
+{% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <div>
+                <a  href="{{ path('app_register') }}">Register</a>
+            </div>
+{% endif %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
