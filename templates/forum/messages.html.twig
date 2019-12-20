@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste des messages{% endblock %}
+
+{% block body %}
+<div class="container">
+
+<h2>Thread : {{ thread.subject }}</h2>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Author</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for message in messages %}
+    <tr class="table-primary">
+      <th scope="row">{{ message.id }}</th>
+      <td><a href="{{ path("detail-message", {'id': message.id}) }}">{{ message.subject }}</a></td>
+      <td>{{ message.author }}</td>
+      <td>{{ message.createdAt | date("d/m/Y") }}</td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table> 
+</div>
+{% endblock %}
